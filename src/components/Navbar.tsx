@@ -92,9 +92,11 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Button variant="default" className="bg-primary text-primary-foreground hover:bg-maroon-dark">
-            Order Now
-          </Button>
+          <Link to="/order">
+            <Button variant="default" className="bg-primary text-primary-foreground hover:bg-maroon-dark">
+              Order Now
+            </Button>
+          </Link>
           <Link to="/contact">
             <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
               Email Us
@@ -164,7 +166,9 @@ const Navbar = () => {
           </Link>
 
           <div className="flex gap-2 mt-3">
-            <Button variant="default" size="sm" className="bg-primary text-primary-foreground">Order Now</Button>
+            <Link to="/order" onClick={() => setIsOpen(false)}>
+              <Button variant="default" size="sm" className="bg-primary text-primary-foreground">Order Now</Button>
+            </Link>
             <Link to="/contact" onClick={() => setIsOpen(false)}>
               <Button variant="outline" size="sm" className="border-primary text-primary">Email Us</Button>
             </Link>
