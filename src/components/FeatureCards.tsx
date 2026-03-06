@@ -1,0 +1,34 @@
+import passionImg from "@/assets/passion-food.jpg";
+import qualityImg from "@/assets/quality-food.jpg";
+
+const cards = [
+  {
+    image: passionImg,
+    title: "Our Passion for Authenticity",
+    desc: "Crafting unforgettable culinary experiences.",
+  },
+  {
+    image: qualityImg,
+    title: "Quality You Can Trust",
+    desc: "Committed to excellence in every dish.",
+  },
+];
+
+const FeatureCards = () => (
+  <section className="py-20 bg-background">
+    <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8">
+      {cards.map((card) => (
+        <div key={card.title} className="relative rounded-lg overflow-hidden group h-80">
+          <img src={card.image} alt={card.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="relative z-10 h-full flex flex-col justify-end p-8">
+            <h3 className="text-xl font-display font-semibold text-primary-foreground">{card.title}</h3>
+            <p className="text-primary-foreground/80 mt-1">{card.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+export default FeatureCards;
