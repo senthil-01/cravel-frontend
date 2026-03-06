@@ -9,6 +9,8 @@ import MenuPage from "./pages/MenuPage";
 import TraySizesPage from "./pages/TraySizesPage";
 import TrayPricesPage from "./pages/TrayPricesPage";
 import TrayPriceCategoryPage from "./pages/TrayPriceCategoryPage";
+import CuisineMenuPage from "./pages/CuisineMenuPage";
+import OrderPage from "./pages/OrderPage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
@@ -25,6 +27,8 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/menu" element={<MenuPage />} />
+            <Route path="/menu/:slug" element={<CuisineMenuPage />} />
+            <Route path="/order" element={<OrderPage />} />
             <Route path="/tray-sizes" element={<TraySizesPage />} />
             <Route path="/tray-prices" element={<TrayPricesPage />} />
             <Route path="/tray-prices/:slug" element={<TrayPriceCategoryPage />} />

@@ -1,23 +1,31 @@
+import { Link } from "react-router-dom";
 import northImg from "@/assets/north-indian.jpg";
 import southImg from "@/assets/south-indian.jpg";
 import internationalImg from "@/assets/international.jpg";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const cuisines = [
   {
     image: northImg,
     title: "North Indian Catering",
     desc: "Elegant modern Indian cuisine using the finest seasonal ingredients with both classic and modern techniques. A wide North Indian menu for your selection.",
+    link: "/menu/north-indian",
+    cta: "View Menu",
   },
   {
     image: southImg,
     title: "South Indian Catering",
     desc: "Famous for our extensive South Indian menu covering all regional specialties of Andhra, Karnataka, Kerala and Tamil Nadu.",
+    link: "/menu/south-indian",
+    cta: "Explore Packages",
   },
   {
     image: internationalImg,
     title: "International Catering",
     desc: "A unique experience with International Cuisines including Italian, Mediterranean, and Continental Veg/Vegan flavors.",
+    link: "/menu/international",
+    cta: "View Menu",
   },
 ];
 
@@ -33,9 +41,11 @@ const CuisineSection = () => (
             <div className="p-6">
               <h3 className="text-xl font-display font-semibold text-primary mb-2">{item.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-              <a href="#" className="inline-flex items-center gap-1 mt-4 text-gold font-semibold text-sm hover:gap-2 transition-all">
-                View Menu <ArrowRight className="w-4 h-4" />
-              </a>
+              <Link to={item.link}>
+                <Button className="mt-4 bg-primary text-primary-foreground hover:bg-maroon-dark">
+                  {item.cta} <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+              </Link>
             </div>
           </div>
         ))}
