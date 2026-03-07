@@ -15,7 +15,9 @@ const Home = () => (
     <StatsSection />
     <CuisineSection />
     <ServicesSection />
+    <div id="pricing">
     <PricingSection />
+    </div>
     <AboutSection />
     <TestimonialsSection />
     <EventsSection />

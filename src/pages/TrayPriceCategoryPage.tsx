@@ -1,10 +1,50 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useMemo } from "react";
 import PageHero from "@/components/PageHero";
-import { getCategoryBySlug } from "@/data/menuData";
+import { getCategoryBySlug, MenuItem } from "@/data/menuData";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
+
+const ItemCard = ({ item }: { item: MenuItem }) => {
+  const [selectedSize, setSelectedSize] = useState(item.sizes[0]);
+
+  return (
+    <div className="bg-cream rounded-lg p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+      <h4 className="font-display font-semibold text-lg text-primary mb-1">{item.name}</h4>
+      <p className="text-muted-foreground text-sm mb-4">{item.category}</p>
+
+      <div className="mb-3">
+        <span className="text-xs font-semibold text-foreground uppercase tracking-wide">Size:</span>
+        <div className="flex gap-2 mt-1">
+          {item.sizes.map((s) => {
+            const sizeKey = typeof s === "string" ? s : s.size;
+            return (
+              <span
+                key={sizeKey}
+                onClick={() => setSelectedSize(s)}
+                className={`px-3 py-1 text-xs rounded-full font-medium cursor-pointer ${
+                  (typeof selectedSize === "string" ? selectedSize : selectedSize.size) === sizeKey
+                    ? "bg-primary text-white"
+                    : "bg-primary/10 text-primary"
+                }`}
+              >
+                {sizeKey}
+              </span>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between mt-4 pt-3 border-t border-border">
+        <span className="text-xs font-semibold text-foreground uppercase tracking-wide">Price:</span>
+        <span className="text-xl font-display font-bold text-gold">
+          {typeof selectedSize === "string" ? item.price ?? "N/A" : selectedSize.price}
+        </span>
+      </div>
+    </div>
+  );
+};
 
 const TrayPriceCategoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -67,32 +107,7 @@ const TrayPriceCategoryPage = () => {
           {/* Items Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.map((item) => (
-              <div
-                key={item.name}
-                className="bg-cream rounded-lg p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h4 className="font-display font-semibold text-lg text-primary mb-1">{item.name}</h4>
-                <p className="text-muted-foreground text-sm mb-4">{item.category}</p>
-
-                <div className="mb-3">
-                  <span className="text-xs font-semibold text-foreground uppercase tracking-wide">Size:</span>
-                  <div className="flex gap-2 mt-1">
-                    {item.sizes.map((size) => (
-                      <span
-                        key={size}
-                        className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium"
-                      >
-                        {size}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between mt-4 pt-3 border-t border-border">
-                  <span className="text-xs font-semibold text-foreground uppercase tracking-wide">Price:</span>
-                  <span className="text-xl font-display font-bold text-gold">{item.price}</span>
-                </div>
-              </div>
+                <ItemCard key={item.name} item={item} />
             ))}
           </div>
 

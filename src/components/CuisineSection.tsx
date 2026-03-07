@@ -18,7 +18,7 @@ const cuisines = [
     title: "South Indian Catering",
     desc: "Famous for our extensive South Indian menu covering all regional specialties of Andhra, Karnataka, Kerala and Tamil Nadu.",
     link: "/menu/south-indian",
-    cta: "Explore Packages",
+    cta: "View Menu",
   },
   {
     image: internationalImg,

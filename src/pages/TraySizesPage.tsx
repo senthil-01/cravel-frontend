@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 const traySizes = [
   {
     name: "Half Tray (Small Deep Tray)",
+    imageSrc: "/src/assets/Half+tray-1920w.webp", // 👈 Replace with your image path
     specs: [
       { label: "WIDTH", value: '10 3/8 Inches' },
       { label: "DEPTH", value: '2 9/16 Inches' },
@@ -15,6 +16,7 @@ const traySizes = [
   },
   {
     name: "Medium Tray (Long Shallow Tray)",
+    imageSrc: "/src/assets/medium+tray-1920w (1).webp", // 👈 Replace with your image path
     specs: [
       { label: "WIDTH", value: '12 13/16 Inches' },
       { label: "DEPTH", value: '2 Inches' },
@@ -28,6 +30,7 @@ const traySizes = [
   },
   {
     name: "Full Tray (Large Deep Tray)",
+    imageSrc: "/src/assets/Full+Tray-1920w.webp", // 👈 Replace with your image path
     specs: [
       { label: "WIDTH", value: '12 13/16 Inches' },
       { label: "DEPTH", value: '3 3/8 Inches' },
@@ -50,8 +53,12 @@ const TraySizesPage = () => (
           {traySizes.map((tray) => (
             <div key={tray.name} className="bg-cream rounded-lg p-8 border border-border shadow-md text-center">
               <h3 className="text-xl font-display font-semibold text-primary mb-6">{tray.name}</h3>
-              <div className="w-32 h-24 mx-auto mb-6 bg-muted rounded flex items-center justify-center">
-                <span className="text-muted-foreground text-4xl">🍱</span>
+              <div className="w-32 h-24 mx-auto mb-6 flex items-center justify-center">
+                <img
+                  src={tray.imageSrc}
+                  alt={tray.name}
+                  className="w-full h-full object-contain rounded"
+                />
               </div>
               <div className="space-y-3 text-left">
                 {tray.specs.map((spec) => (

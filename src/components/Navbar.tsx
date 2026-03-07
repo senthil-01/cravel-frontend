@@ -23,7 +23,7 @@ const Navbar = () => {
     <nav className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border shadow-sm">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
         <Link to="/" className="font-display text-2xl font-bold text-primary tracking-wide">
-          MAYA <span className="text-gold text-sm font-body font-normal block -mt-1">Indian Bar & Grill</span>
+          NIMIR <span className="text-gold text-sm font-body font-normal block -mt-1">Indian Bar & Grill</span>
         </Link>
 
         {/* Desktop nav */}
@@ -40,30 +40,32 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* Tray Prices Dropdown */}
+          {/* Tray Prices Dropdown — closes when mouse leaves the whole area */}
           <div
             className="relative"
-            onMouseEnter={() => setTrayDropdownOpen(true)}
             onMouseLeave={() => setTrayDropdownOpen(false)}
           >
-            <Link
-              to="/tray-prices"
+            <button
+              onClick={() => setTrayDropdownOpen(!trayDropdownOpen)}
+              onMouseEnter={() => setTrayDropdownOpen(true)}
               className={`font-medium text-sm transition-colors inline-flex items-center gap-1 ${
                 isTrayPriceActive ? "text-primary" : "text-foreground hover:text-primary"
               }`}
             >
-              Tray Prices <ChevronDown className="w-3.5 h-3.5" />
-            </Link>
+              Tray Prices <ChevronDown className={`w-3.5 h-3.5 transition-transform ${trayDropdownOpen ? "rotate-180" : ""}`} />
+            </button>
+
             {trayDropdownOpen && (
-              <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-md shadow-lg py-2 z-50">
+              <div className="absolute top-full left-0  w-56 bg-background border border-border rounded-md shadow-lg py-2 z-50">
                 {trayPriceCategories.map((cat) => (
                   <Link
                     key={cat.slug}
                     to={`/tray-prices/${cat.slug}`}
+                    onClick={() => setTrayDropdownOpen(false)}
                     className={`block px-4 py-2 text-sm transition-colors ${
                       location.pathname === `/tray-prices/${cat.slug}`
-                        ? "text-primary bg-cream"
-                        : "text-foreground hover:text-primary hover:bg-cream"
+                        ? "text-primary-foreground bg-primary"
+                        : "text-foreground hover:text-primary-foreground hover:bg-primary/80"
                     }`}
                   >
                     {cat.title}
@@ -141,7 +143,7 @@ const Navbar = () => {
                 <Link
                   key={cat.slug}
                   to={`/tray-prices/${cat.slug}`}
-                  className="block py-1.5 text-sm text-muted-foreground hover:text-primary"
+                  className="block py-1.5 text-sm text-muted-foreground hover:text-primary-foreground hover:bg-primary/80 px-2 rounded transition-colors"
                   onClick={() => { setIsOpen(false); setMobileTrayOpen(false); }}
                 >
                   {cat.title}

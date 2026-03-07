@@ -29,8 +29,12 @@ const packages = [
 const PricingSection = () => (
   <section id="pricing" className="py-20 bg-cream">
     <div className="container mx-auto px-4 text-center">
-      <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">Pricing Options</h2>
-      <h3 className="text-lg font-display text-muted-foreground mb-2">Corporate Catering Package Menu</h3>
+      <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">Pricing Options<br /></h2>
+      <p className="text-muted-foreground text-sm mb-12">Check out the price for getting a professional catering plan completed to suit you and your guests.
+        <br />Minimum quantity to order from Corporate Catering package is 30. *T&C Apply. *Price Subject To Change</p>
+      <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
+          Corporate Catering Package Menu
+        </h2>
       <p className="text-muted-foreground text-sm mb-12">Min – 30 Guests and 7 days in advance. Pick up from restaurant.</p>
       <div className="grid md:grid-cols-3 gap-8 items-stretch">
         {packages.map((pkg) => (
@@ -57,9 +61,7 @@ const PricingSection = () => (
                   </li>
                 ))}
               </ul>
-              <Button className="mt-6 bg-primary text-primary-foreground hover:bg-maroon-dark w-full">
-                Select Package
-              </Button>
+              
             </div>
           </div>
         ))}

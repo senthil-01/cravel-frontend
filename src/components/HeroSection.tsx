@@ -6,7 +6,7 @@ const HeroSection = () => (
     <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
     <div className="relative z-10 text-center px-4">
       <h1 className="text-4xl md:text-6xl font-display font-bold text-primary-foreground text-shadow-hero mb-6">
-        Welcome to Maya Indian Catering
+        Welcome to NIMIR Indian Catering
       </h1>
     </div>
   </section>

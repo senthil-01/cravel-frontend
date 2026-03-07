@@ -13,6 +13,7 @@ import CuisineMenuPage from "./pages/CuisineMenuPage";
 import OrderPage from "./pages/OrderPage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
+import OurMenu from "@/pages/our_menu";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/tray-prices/:slug" element={<TrayPriceCategoryPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/our_menu" element={<OurMenu />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
