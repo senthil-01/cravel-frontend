@@ -26,7 +26,7 @@ const MenuPage = () => {
                 </a>
 
                 <a
-                  href="/pdfs/south-indian-menu.pdf"  /* ← replace with your PDF path */
+                  href="/src/pdfs/south-indian-menu.pdf"  /* ← replace with your PDF path */
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-primary/80 text-primary-foreground text-center text-base font-semibold py-5 px-8 max-w-sm rounded-md hover:bg-primary transition-colors duration-200"

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 500, label: "Menu Items" },
+  { value: 107, label: "Menu Items" },
   { value: 200, label: "Corporate Clients" },
   { value: 900, label: "Private Clients" },
   { value: 4500, label: "Events Catered" },

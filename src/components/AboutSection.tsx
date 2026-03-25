@@ -20,7 +20,13 @@ const AboutSection = () => {
             NIMIR is selected as one of the preferred vendors for many Corporate Catering events. We have been doing Wedding Catering in collaboration with other vendors to provide a multi-cuisine menu. Our team ensures the best quality food, timely delivery, orderly setup, and pleasant service.
           </p>
           <Button
-            onClick={() => navigate("/our_menu")}
+            onClick={() => {
+              navigate("/our_menu");
+              setTimeout(() => {
+                const el = document.getElementById("menu");
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }, 100);
+            }}
             className="bg-primary text-primary-foreground hover:bg-maroon-dark"
           >
             Explore Our Menu

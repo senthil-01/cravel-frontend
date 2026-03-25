@@ -15,6 +15,16 @@ import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
 import OurMenu from "@/pages/our_menu";
 import NotFound from "./pages/NotFound";
+import NimirChat from "@/components/NimirChat";
+import CheckoutPage from "./pages/CheckoutPage";
+import SalesDashboard from "@/pages/SalesDashboard";
+import SalesOrderDetail     from "@/pages/SalesOrderDetail";
+import SalesOverrideRequest from "@/pages/SalesOverrideRequest";
+import OverrideApprovalsDashboard from "@/pages/OverrideApprovalsDashboard";
+import RecordOutcomesPage from "@/pages/RecordOutcomesPage";
+import OwnerDashboard from "@/pages/OwnerDashboard";
+import AdminDashboard from "@/pages/AdminDashboard";
+
 
 const queryClient = new QueryClient();
 
@@ -36,9 +46,19 @@ const App = () => (
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/our_menu" element={<OurMenu />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/sales/dashboard" element={<SalesDashboard />} />
+            <Route path="/sales/orders/:requestId"           element={<SalesOrderDetail />} />
+            <Route path="/sales/override-request/:requestId" element={<SalesOverrideRequest />} />
+            <Route path="/approvals/dashboard" element={<OverrideApprovalsDashboard />} />
+            <Route path="/approvals/dashboard" element={<OverrideApprovalsDashboard />} />
+            <Route path="/outcomes/new"        element={<RecordOutcomesPage />} /> 
+            <Route path="/owner/dashboard" element={<OwnerDashboard />} />
+            <Route path= "/admin/dashboard" element= {<AdminDashboard /> } />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <NimirChat />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

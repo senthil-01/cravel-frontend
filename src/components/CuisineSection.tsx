@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import northImg from "@/assets/north-indian.jpg";
 import southImg from "@/assets/south-indian.jpg";
-import internationalImg from "@/assets/international.jpg";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -20,26 +19,28 @@ const cuisines = [
     link: "/menu/south-indian",
     cta: "View Menu",
   },
-  {
-    image: internationalImg,
-    title: "International Catering",
-    desc: "A unique experience with International Cuisines including Italian, Mediterranean, and Continental Veg/Vegan flavors.",
-    link: "/menu/international",
-    cta: "View Menu",
-  },
 ];
 
 const CuisineSection = () => (
   <section id="cuisine" className="py-20 bg-cream">
     <div className="container mx-auto px-4">
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="flex flex-wrap justify-center gap-8">
         {cuisines.map((item) => (
-          <div key={item.title} className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div
+            key={item.title}
+            className="bg-background rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full sm:w-[calc(50%-1rem)] lg:w-[360px]"
+          >
             <div className="h-56 overflow-hidden">
-              <img src={item.image} alt={item.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-display font-semibold text-primary mb-2">{item.title}</h3>
+              <h3 className="text-xl font-display font-semibold text-primary mb-2">
+                {item.title}
+              </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               <Link to={item.link}>
                 <Button className="mt-4 bg-primary text-primary-foreground hover:bg-maroon-dark">
